@@ -116,13 +116,22 @@
           <h2 class="title-section">Чим ми займаємося</h2>
           <ul class="ulsectionthree">
             <li class="lisectionthree">
-              <img src="./images/1.jpg" alt="Створення вашого сайту" width="370" height="294" />
+              <div class="pluses-overlay">
+                <img src="./images/1.jpg" alt="Створення вашого сайту" width="370" height="294" />
+                <p class="plusestext-overlay">ДЕСКТОПНІ ДОДАТКИ</p>
+              </div>
             </li>
             <li class="lisectionthree">
-              <img src="./images/2.jpg" alt="Розробка макету" width="370" height="294" />
+              <div class="pluses-overlay">
+                <img src="./images/2.jpg" alt="Розробка макету" width="370" height="294" />
+                <p class="plusestext-overlay">МОБІЛЬНІ ДОДАТКИ</p>
+              </div>
             </li>
             <li class="lisectionthree">
-              <img src="./images/3.jpg" alt="Робота над дизайном" width="370" height="294" />
+              <div class="pluses-overlay">
+                <img src="./images/3.jpg" alt="Робота над дизайном" width="370" height="294" />
+                <p class="plusestext-overlay">ДИЗАЙНЕРСЬКІ РІШЕННЯ</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -398,5 +407,13 @@
         </div>
       </div>
     </footer>
+    <button data-modal-open>Замовити послугу</button>
+    <div class="backdrop" data-modal>
+      <div class="modal">
+        <p></p>
+        <button class="close-modal" data-modal-close>Закрити</button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

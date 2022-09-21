@@ -18,6 +18,7 @@ body {
     font-family: Roboto, sans-serif;
     font-size: 14px;
     letter-spacing: 0.03em;
+    /*padding-top: 79.93px;*/
 }
 
 .container {
@@ -76,6 +77,11 @@ ul {
 
 header {
     border-bottom: 1px solid #ECECEC;
+    /*position: fixed;
+    top: 0;
+    left: 0;
+    height: 79.93px;
+    opacity: 1;*/
 }
 
 .divheader {
@@ -96,6 +102,10 @@ header {
     display: flex;
     margin-left: 93px;
     gap: 50px;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ulnavigationone a {
@@ -343,6 +353,10 @@ header {
 .link-portfolio {
     display: block;
     text-decoration: none;
+
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-portfolio:hover {
@@ -381,6 +395,17 @@ header {
     margin-top: 20px;
 }
 
+.link.addresslink {
+transition-property: color;
+transition-duration: 250ms;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link.addresslink:hover,
+.link.addresslink:focus {
+    color: var(--interactive-color);
+}
+
 /* ПОДСВЕТКА АКТИВНОГО СЕГМЕНТА НАВИГАЦИИ*/
 
 .link.current {
@@ -396,6 +421,10 @@ header {
     text-decoration: none;
     fill: currentColor;
     align-items: center;  
+
+    transition-property: color, fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-header:hover,
@@ -409,6 +438,10 @@ header {
     text-decoration: none;
     font-weight: normal;
     display: block;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-footer:hover,
@@ -431,6 +464,11 @@ header {
     min-width: 130px;
     border: 0 solid transparent;
     margin-top: 30px;
+
+    transition-property: box-shadow, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
 .button-primary:hover,
@@ -450,6 +488,10 @@ header {
     border-radius: 4px;
     padding: 6px 22px;
     border: 0 solid transparent;
+
+    transition-property: box-shadow, color, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-secondary:hover,
@@ -505,6 +547,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition-property: fill, border-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-clients:hover,
@@ -532,6 +578,10 @@ img {
     background-color: #2196F3;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+
+    transition-property: fill, border-radius, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -547,12 +597,6 @@ img {
 .icon-contacts {
     margin-right: 10px;
     padding-top: 1px;    
-}
-
-.mail:hover,
-.mail:focus {
-    fill: var(--interactive-color);
-    color: var(--interactive-color);
 }
 
 
@@ -584,3 +628,192 @@ img {
 .social-footer {
     margin-left: 70px;
 }
+
+
+/* УРОК ПОЗИЦИОНИРОВАНИЕ */
+
+/* ОВЕРЛЕЙ ПОРТФОЛИО */
+
+.portfolio-overlay {
+    position: relative;
+}
+
+.text-overlay {
+    position: absolute;
+
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 250ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.text-overlay:hover,
+.text-overlay:focus {
+    opacity: 1; 
+}
+
+.portfolio-overlay::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 150, 243, 0.9);
+    opacity: 0; 
+    transition: 250ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-portfolio:hover .portfolio-overlay::before,
+.link-portfolio:focus .portfolio-overlay::before {
+    transform: translateX(0);
+}
+
+
+.link-portfolio:hover .text-hidden::before,
+.link-portfolio:focus .text-hidden::before {
+    transform: translateX(0);
+}
+
+.portfolio-overlay:hover::before,
+.portfolio-overlay:focus::before {
+    opacity: 1;
+}
+
+.portfolio-overlay {
+    overflow: hidden;
+}
+
+.text-hidden::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 150, 243, 0.9);
+    opacity: 0;
+    transition: 250ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* МОДАЛЬНОЕ ОКНО */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    width: 528px;
+    height: 581px;
+    
+    background-color: #FFFFFF;
+}
+
+
+.close-modal {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 490px;
+}
+
+/* ЧИМ МИ ЗАЙМАЄМОСЯ ОВЕРЛЕЙ */
+
+
+.pluses-overlay {
+    position: relative;
+}
+
+.plusestext-overlay {
+    position: absolute;
+    
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    color: var(--background-text-color);
+
+    padding-bottom: 27px;
+    bottom: 0px;
+    transition: 250ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:flex-end;
+    justify-content: center;
+}
+
+.plusestext-overlay:hover,
+.plusestext-overlay:focus {
+    opacity: 1;
+}
+
+.pluses-overlay::before {
+    content: '';
+    position: absolute;
+    
+    width: 370px;
+    height: 70px;
+    background: rgba(47, 48, 58, 0.8);
+    opacity: 0;
+    bottom: 0;
+    transition: 250ms opacity cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pluses-overlay:hover::before,
+.pluses-overlay:focus::before {
+    opacity: 1;
+}
+
+/* НИЖНЕЕ ПОДЧЕРКИВАНИЕ */
+
+.link {
+    position: relative;
+}
+
+.current::after {
+    content: '';
+    position: absolute;
+    display: block;
+    color: var(--interactive-color);
+    border-radius: 2px;
+    height: 4px;
+    width: 78px;
+    left: 0;
+    bottom: 0;
+}
+
